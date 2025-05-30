@@ -185,7 +185,7 @@ export default defineConfig({
   base: '/Portfolio/', // ESSENTIEL pour GitHub Pages
   plugins: [react()],
   build: {
-    outDir: 'dist', // Dossier de sortie
+    outDir: 'docs', // Dossier de sortie
     emptyOutDir: true, // Nettoie le dossier avant build
   },
   server: {

@@ -25,7 +25,7 @@
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2, type: "spring", stiffness: 120 }}
             >
-              Salut, je suis <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">Votre Nom</span>
+              Salut, je suis <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">Yann Le Guennec</span>
             </motion.h1>
             <motion.p 
               className="text-xl md:text-2xl text-slate-300 mb-10 max-w-2xl mx-auto"
@@ -68,8 +68,8 @@
             }}
           >
             {[
-              { title: "Développement Frontend", description: "React, Next.js, Vue, TailwindCSS. Création d'interfaces utilisateur interactives et responsives.", icon: "💻" },
-              { title: "Développement Backend", description: "Node.js, Express, Python, Django. Conception d'API robustes et évolutives.", icon: "⚙️" },
+              { title: "Développement Frontend", description: "React, Next.js, TailwindCSS. Création d'interfaces utilisateur interactives et responsives.", icon: "💻" },
+              { title: "Développement Backend", description: "Node.js, Express, Python. Conception d'API évolutives.", icon: "⚙️" },
               { title: "Compétences Clés", description: "Résolution de problèmes, travail d'équipe, communication, apprentissage continu.", icon: "🚀" },
             ].map((item, index) => (
               <motion.div
