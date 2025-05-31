@@ -182,7 +182,7 @@ logger.error = (msg, options) => {
 }
 
 export default defineConfig({
-  base: '/Portfolio/', // ESSENTIEL pour GitHub Pages
+  base: '/Portfolio/index.html/', // ESSENTIEL pour GitHub Pages
   plugins: [react()],
   build: {
     outDir: 'docs', // Dossier de sortie

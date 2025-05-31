@@ -1,0 +1,26 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches: [main]  # Se déclenche sur les pushes vers 'main'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Étape 1 : Récupère le code
+      - uses: actions/checkout@v4
+
+      # Étape 2 : Installe Node.js et les dépendances
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # Étape 3 : Installe et build le projet
+      - run: npm install
+      - run: npm run build
+
+      # Étape 4 : Déploie vers docs/
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs  # Doit correspondre à outDir dans vite.config.js
