@@ -3,7 +3,7 @@
     import { motion } from 'framer-motion';
     import { Award, Brain, Users } from 'lucide-react';
     import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-    import photo from './dist/assets/PhotoYann.jpg';
+    
 
     const AboutPage = () => {
       const skills = [
@@ -40,8 +40,7 @@
                 transition={{ duration: 0.7, ease: "easeOut" }}
                 className="relative group"
               >
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-                <img src={PhotoYann} alt="Exemple" />
+
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
