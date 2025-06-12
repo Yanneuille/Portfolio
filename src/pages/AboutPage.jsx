@@ -40,7 +40,7 @@
                 transition={{ duration: 0.7, ease: "easeOut" }}
                 className="relative group"
               >
-                <img src={`${process.env.PUBLIC_URL}/../public/PhotoYann.jpg`} alt="Test" />
+                <img src={`${process.env.PUBLIC_URL}./public/PhotoYann.jpg`} alt="Test" />
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
