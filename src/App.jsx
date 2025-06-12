@@ -1,35 +1,64 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+    import React, { Suspense, lazy } from 'react';
+    import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+    import { AnimatePresence, motion } from 'framer-motion';
+    import Navbar from '@/components/layout/Navbar';
+    import Footer from '@/components/layout/Footer';
+    import { Toaster } from "@/components/ui/toaster";
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    const HomePage = lazy(() => import('@/pages/HomePage'));
+    const AboutPage = lazy(() => import('@/pages/AboutPage'));
+    const ProjectsPage = lazy(() => import('@/pages/ProjectsPage'));
+    const ContactPage = lazy(() => import('@/pages/ContactPage'));
+    const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'));
+
+    const PageLoader = () => (
+      <div className="flex justify-center items-center h-screen">
+        <motion.div
+          style={{
+            width: 50,
+            height: 50,
+            borderRadius: '50%',
+            border: '5px solid #f3f3f3',
+            borderTop: '5px solid #FF69B4', 
+          }}
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    );
+    
+    const AnimatedRoutes = () => {
+      const location = useLocation();
+      return (
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </AnimatePresence>
+      );
+    };
 
-export default App
+    function App() {
+      return (
+        <Router>
+          <div className="flex flex-col min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 text-slate-50">
+            <Navbar />
+            <main className="flex-grow">
+              <Suspense fallback={<PageLoader />}>
+                <AnimatedRoutes />
+              </Suspense>
+            </main>
+            <Footer />
+            <Toaster />
+          </div>
+        </Router>
+      );
+    }
+
+    export default App;
+  
