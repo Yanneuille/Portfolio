@@ -4,6 +4,7 @@
     import { Award, Brain, Users } from 'lucide-react';
     import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
     
+    
 
     const AboutPage = () => {
       const skills = [
@@ -40,7 +41,11 @@
                 transition={{ duration: 0.7, ease: "easeOut" }}
                 className="relative group"
               >
-                <img src={`${process.env.PUBLIC_URL}./public/PhotoYann.jpg`} alt="Test" />
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+                <img  
+                  className="relative rounded-lg shadow-2xl w-full h-auto max-h-[650px] object-cover" 
+                  alt="Photo de profil"
+                 src="PhotoYann.jpg" />
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
