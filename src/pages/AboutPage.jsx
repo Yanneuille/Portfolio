@@ -45,7 +45,7 @@
                 <img  
                   className="relative rounded-lg shadow-2xl w-full h-auto max-h-[650px] object-cover" 
                   alt="Photos de profil"
-                 src="https://github.com/Yanneuille/Portfolio/blob/main/public/PhotoYann.jpg" />
+                 src="https://github.com/Yanneuille/yannPortfolio/blob/main/PhotoYann.jpg" />
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
